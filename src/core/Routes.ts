@@ -1,14 +1,15 @@
 import { Express, NextFunction, Request, Response } from "express";
 import { DELETE, GET, IRoute, POST, PUT } from "./interfaces/IRoute";
-import Promise from "bluebird";
+import PromiseB from "bluebird";
 import _ from "lodash";
 import { IRouteMiddleware } from "./interfaces/IRouteMiddleware";
 import { IAction } from "./interfaces/IAction";
+import createHttpError from "http-errors";
 
 const asyncMiddleware = (wrap: {
   (req: Request, res: Response, next: NextFunction): void;
 }) => (req: Request, res: Response, next: NextFunction) => {
-  Promise.resolve(wrap(req, res, next)).catch(next);
+  PromiseB.resolve(wrap(req, res, next)).catch(next);
 };
 
 export class Routes {
@@ -44,7 +45,8 @@ export class Routes {
         app.delete(route.pattern, this.getHandlerByRoute(route));
         break;
       default:
-        throw new Error(
+        throw createHttpError(
+          400,
           `Error in the Routes.setHandler(...) -> Method ${
             route.method
           } is not supported. ${JSON.stringify(route)}`

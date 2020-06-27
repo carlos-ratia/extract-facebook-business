@@ -10,6 +10,10 @@ import { ErrorHandler } from "./ErrorHandler";
 export default class App {
   private readonly _framework: Express;
 
+  get framework(): Express {
+    return this._framework;
+  }
+
   public constructor() {
     // Register EXPRESS
     this._framework = express();
@@ -38,9 +42,5 @@ export default class App {
 
     // error handler
     this.framework.use(ErrorHandler.call);
-  }
-
-  get framework(): Express {
-    return this._framework;
   }
 }
