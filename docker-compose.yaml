@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  extract-facebook-business:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: .env
+    environment:
+      ENV_NAME: dev
+    ports:
+      - 3001:3001
+
+networks:
+  app-network:
+    driver: bridge
