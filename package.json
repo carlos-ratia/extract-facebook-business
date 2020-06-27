@@ -1,0 +1,34 @@
+{
+  "name": "extract-facebook-business",
+  "version": "1.0.0",
+  "description": "ETL Facebook Business",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlos-ratia/extract-facebook-business.git"
+  },
+  "author": "Carlos Ratia",
+  "license": " Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/carlos-ratia/extract-facebook-business/issues"
+  },
+  "homepage": "https://github.com/carlos-ratia/extract-facebook-business#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
+  },
+  "scripts": {
+    "start": "npm run serve",
+    "build": "npm run build:ts && npm run lint",
+    "serve": "node dist/src/server.js",
+    "build:ts": "tsc",
+    "watch:build": "tsc -w",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
+    "prettier": "prettier --write ./migrations/*.js ./app/**/*.ts  ./app/**/**/*.ts ./src/*.ts ./src/**/*.ts ./src/**/**/*.ts ./src/**/**/**/*.ts ./src/**/**/**/**/*.ts ./src/**/**/**/**/**/*.ts ./src/**/**/**/**/**/**/*.ts"
+  }
+}
