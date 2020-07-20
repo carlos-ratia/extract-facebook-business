@@ -47,6 +47,3 @@ binlog_rows_query_log_events    = ON
 
 gtid_mode                       = ON
 enforce_gtid_consistency        = ON
-
-
-
