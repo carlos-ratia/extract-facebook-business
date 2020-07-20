@@ -50,6 +50,7 @@ services:
     environment:
       BROKER_ID: 1
       ZOOKEEPER_CONNECT: zookeeper:2181
+      ADVERTISED_HOST_NAME: ${HOST_IP}
     links:
       - zookeeper
     depends_on:
